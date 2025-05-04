@@ -23,7 +23,7 @@ templates (e.g., `arxiv`, `ieee`, `acm`) into PDFs.
 - `src/<template>/`: LaTeX source files for each template.
 - `build/<template>/`: Output directory for compiled results.
 
-## 🔧 Prerequisites (macOS & Linux)
+## 🔧 Environment Setup (macOS & Linux)
 
 ### 1. LaTeX Distribution
 
@@ -47,7 +47,7 @@ sudo apt update
 sudo apt install texlive-full
 ```
 
-2. Build Tools
+### 2. Build Tools
 
 Ensure `make` and (optionally) `latexmk` are installed:
 
@@ -62,9 +62,9 @@ To install `latexmk` on Linux:
 sudo apt install latexmk
 ```
 
-🚀 Build Instructions
+### 3. Build Instructions
 
-Basic build (default backend)
+#### Basic build (default backend)
 
 ```bash
 make TEMPLATE=arxiv
@@ -77,13 +77,13 @@ This will:
 * Automatically run makeglossaries if glossary files exist
 * Finalize PDF in build/arxiv/main.pdf
 
-Build using latexmk (recommended)
+#### Build using latexmk (recommended)
 
 ```bash
 make TEMPLATE=arxiv USE_LATEXMK=1
 ```
 
-🧹 Cleaning
+### 4. Cleaning
 
 Remove build files for a specific template:
 
@@ -93,7 +93,7 @@ make clean TEMPLATE=ieee
 
 This deletes build/ieee.
 
-🔧 latexmk Configuration (Optional)
+### 5. latexmk Configuration (Optional)
 
 This repository includes a `.latexmkrc` file to:
 * Use the working build directory
@@ -102,11 +102,11 @@ This repository includes a `.latexmkrc` file to:
 
 Ensure it’s present in the root directory when using `USE_LATEXMK=1`.
 
-✅ Tested On
+## Tested On
 * macOS Ventura 13+ with MacTeX 2023
 * Ubuntu 22.04 with TeX Live 2023
 
-🆘 Troubleshooting
+## Troubleshooting
 * If bibtex or makeglossaries fails:
 * Check that pdflatex was run at least once
 * Verify .bib file exists and is referenced
@@ -114,8 +114,8 @@ Ensure it’s present in the root directory when using `USE_LATEXMK=1`.
 * If pdflatex or latexmk not found:
 * Confirm TeX binaries are in your $PATH
 
-📝 Example Templates
-* `src/arxiv/main.tex` → `build/arxiv/main.pdf`
-* `src/ieee/main.tex` → `build/ieee/main.pdf`
+## Example Templates
+* arxiv: `src/arxiv/main.tex` → `build/arxiv/main.pdf`
+* IEEE conference: `src/ieee/main.tex` → `build/ieee/main.pdf`
 
 Happy TeXing! ✨
